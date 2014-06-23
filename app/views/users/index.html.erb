@@ -12,9 +12,13 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><h1 style="margin: 0;" data-dropdown="drop1" class="button dropdown"><i class="fa fa-cogs"></i></h1><br>
+          <ul id="drop1" data-dropdown-content class="f-dropdown">
+            <li><%= link_to 'Show', user %></li>
+            <li><%= link_to 'Edit', edit_user_path(user) %></li>
+            <li><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>

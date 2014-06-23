@@ -19,10 +19,14 @@
         <td><%= todo.notes %></td>
         <td><%= todo.completed %></td>
         <td><%= todo.due_date %></td>
-        <td><%= todo.list_id.name%></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= todo.list.name%></td>
+        <td><h1 style="margin: 0;" data-dropdown="drop1" class="button dropdown"><i class="fa fa-cogs"></i></h1><br>
+          <ul id="drop1" data-dropdown-content class="f-dropdown">
+            <li><%= link_to 'Show', todo %></li>
+            <li><%= link_to 'Edit', edit_todo_path(todo) %></li>
+            <li><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
