@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  #resources :controllers
+  # resources :controllers]
+
+  resource :login
 
   resources :lists
 

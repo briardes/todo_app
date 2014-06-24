@@ -4,6 +4,31 @@
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.lists.each do |list| %>
+      <tr>
+        <td><%= list.name %></td>
+        <td><%= list.user.name%></td>
+        <td><h1 style="margin: 0;" data-dropdown="drop1" class="button dropdown"><i class="fa fa-cogs"></i></h1><br>
+          <ul id="drop1" data-dropdown-content class="f-dropdown">
+            <li><%= link_to 'Show', list %></li>
+            <li><%= link_to 'Edit', edit_list_path(list) %></li>
+            <li><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
